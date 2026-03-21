@@ -34,7 +34,7 @@ public class StudentController {
         List<Student> students = studentService.getAllStudents();
         return new ResponseEntity<>(students, HttpStatus.OK);
     }
-     
+     //funcion que optiene estudiante por id
     @GetMapping("/{id}")
     public ResponseEntity<Student> getStudentById(@PathVariable Long id) {
         return studentService.getStudentById(id)
