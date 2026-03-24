@@ -41,7 +41,7 @@ public class StudentController {
                 .map(student -> new ResponseEntity<>(student, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
+    //funcion para crear un nuevo estudiante
     @PostMapping
     public ResponseEntity<Student> createStudent(@RequestBody Student student) {
         try {
@@ -51,7 +51,7 @@ public class StudentController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-
+    //funcion para actualizar un estudiante existente
     @PutMapping("/{id}")
     public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student
     ) {
@@ -62,7 +62,7 @@ public class StudentController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-
+     //funcion para eliminar un estudiante por id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
         try {
