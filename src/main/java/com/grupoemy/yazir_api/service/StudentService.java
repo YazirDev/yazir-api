@@ -1,12 +1,13 @@
 package com.grupoemy.yazir_api.service;
 
-import com.grupoemy.yazir_api.model.Student;
-import com.grupoemy.yazir_api.repository.StudentRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.grupoemy.yazir_api.model.Student;
+import com.grupoemy.yazir_api.repository.StudentRepository;
 
 @Service
 public class StudentService {
@@ -20,6 +21,10 @@ public class StudentService {
 
     public Optional<Student> getStudentById(Long id) {
         return studentRepository.findById(id);
+    }
+
+    public List<Student> getStudentsByName(String name) {
+        return studentRepository.findByFirstNameContainingIgnoreCase(name);
     }
 
     public Student createStudent(Student student) {

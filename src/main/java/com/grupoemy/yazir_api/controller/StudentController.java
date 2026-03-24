@@ -41,6 +41,16 @@ public class StudentController {
                 .map(student -> new ResponseEntity<>(student, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    //funcion que obtiene estudiante por nombre
+    @GetMapping("/name/{name}") 
+    public ResponseEntity<List<Student>> getStudentsByName(@PathVariable String name) {
+        List<Student> students = studentService.getStudentsByName(name);
+        if (students.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(students, HttpStatus.OK);
+    }
+
     //funcion para crear un nuevo estudiante
     @PostMapping
     public ResponseEntity<Student> createStudent(@RequestBody Student student) {
