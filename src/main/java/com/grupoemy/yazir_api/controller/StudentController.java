@@ -72,6 +72,9 @@ public class StudentController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+
+    ///mariomendezchaves
      //funcion para eliminar un estudiante por id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
